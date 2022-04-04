@@ -23,7 +23,21 @@ def get_champ_played(Summoner):
         playedChampion.append(champ)
         i = i + 1
     
-    print("Champs: ", champ)
+    #print("Champs: ", champ)
+    return champ
+
+
+def get_team(Summoner):
+
+    team = []
+    i = 0
+    SummonerName = cass.get_summoner(name = Summoner, region = "NA")
+    match_history = SummonerName.match_history[i]
+    # team.append(match_history.blue_team)
+    # print(team)
+    print(match_history.TeamData)
+  
+
 
 with open('championFull.json', 'r', encoding="utf8") as champList_file:
     champList = json.load(champList_file)
@@ -32,4 +46,5 @@ with open('championFull.json', 'r', encoding="utf8") as champList_file:
 #print(champList)
 
 SummonerName = "Snippzzz"
-get_champ_played(SummonerName)
+#get_champ_played(SummonerName)
+get_team(SummonerName)
