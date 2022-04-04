@@ -4,7 +4,11 @@ import roleml
 from datetime import timedelta
 import json
 
-cass.set_riot_api_key("RGAPI-4b0cea48-e1c7-402d-8e87-e99d6261238d")
+def getAPI_key():
+    f = open("api_key.txt", "r")
+    return f.read()
+
+cass.set_riot_api_key(getAPI_key())
 
 def get_champ_played(Summoner):
 
@@ -46,5 +50,5 @@ with open('championFull.json', 'r', encoding="utf8") as champList_file:
 #print(champList)
 
 SummonerName = "Snippzzz"
-#get_champ_played(SummonerName)
-get_team(SummonerName)
+get_champ_played(SummonerName)
+#get_team(SummonerName)
